@@ -35,24 +35,27 @@ public class TennisGame1 implements TennisGame {
         for (int i = 1; i<3; i++)
         {
             if (i==1) tempScore = scorePlayerOne;
-            else { score +="-"; tempScore = scorePlayerTwo;}
-            switch(tempScore)
-            {
-                case 0:
-                    score +="Love";
-                    break;
-                case 1:
-                    score +="Fifteen";
-                    break;
-                case 2:
-                    score +="Thirty";
-                    break;
-                case 3:
-                    score +="Forty";
-                    break;
+            else {
+                score +="-";
+                tempScore = scorePlayerTwo;
             }
+            score += getFoo(tempScore);
         }
         return score;
+    }
+
+    private String getFoo(int tempScore) {
+        switch(tempScore)
+        {
+            case 0:
+                return "Love";
+            case 1:
+                return "Fifteen";
+            case 2:
+                return "Thirty";
+            default:
+                return "Forty";
+        }
     }
 
     private String getAdvantageOrWinner() {
