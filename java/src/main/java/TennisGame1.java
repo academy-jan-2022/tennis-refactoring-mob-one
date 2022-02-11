@@ -31,16 +31,9 @@ public class TennisGame1 implements TennisGame {
 
     private String getRunningScore() {
         String score = "";
-        int tempScore;
-        for (int i = 1; i<3; i++)
-        {
-            if (i==1) tempScore = scorePlayerOne;
-            else {
-                score +="-";
-                tempScore = scorePlayerTwo;
-            }
-            score += getFoo(tempScore);
-        }
+        score += getFoo(scorePlayerOne) ;
+        score +="-";
+        score += getFoo(scorePlayerTwo);
         return score;
     }
 
