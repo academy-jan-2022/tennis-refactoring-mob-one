@@ -21,19 +21,14 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
+
         if (scorePlayerOne == scorePlayerTwo)
-        {
-            score = getScoreWhenAll();
-        }
-        else if (scorePlayerOne >=4 || scorePlayerTwo >=4)
-        {
-            score = getAdvantageOrWinner();
-        }
-        else
-        {
-            score = getRunningScore(score);
-        }
-        return score;
+            return getScoreWhenAll();
+
+        if (scorePlayerOne >=4 || scorePlayerTwo >=4)
+            return getAdvantageOrWinner();
+
+        return getRunningScore(score);
     }
 
     private String getRunningScore(String score) {
