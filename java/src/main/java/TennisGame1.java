@@ -58,17 +58,15 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getScoreWhenAll() {
-        switch (scorePlayerOne)
-        {
+        switch (scorePlayerOne) {
             case 0:
-                    return "Love-All";
+                return "Love-All";
             case 1:
-                    return "Fifteen-All";
+                return "Fifteen-All";
             case 2:
-                    return "Thirty-All";
+                return "Thirty-All";
             default:
-                    return "Deuce";
-
+                return "Deuce";
         }
     }
 }
