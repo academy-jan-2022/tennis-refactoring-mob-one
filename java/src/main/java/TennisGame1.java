@@ -34,37 +34,29 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String mapPlayerScore(int tempScore) {
-        switch(tempScore)
-        {
-            case 0:
-                return "Love";
-            case 1:
-                return "Fifteen";
-            case 2:
-                return "Thirty";
-            default:
-                return "Forty";
-        }
+        return switch (tempScore) {
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            default -> "Forty";
+        };
     }
 
     private String getAdvantageOrWinner() {
-        int scoreDifference = scorePlayerOne - scorePlayerTwo;
-        if (scoreDifference == 1) return "Advantage " + player1Name;
-        if (scoreDifference == -1) return"Advantage " + player2Name;
-        if (scoreDifference >= 2) return "Win for " + player1Name;
-        return "Win for " + player2Name;
+        return switch (scorePlayerOne - scorePlayerTwo){
+            case 1 -> "Advantage " + player1Name;
+            case -1 -> "Advantage " + player2Name;
+            case 2 -> "Win for " +  player1Name;
+            default -> "Win for " + player2Name;
+        };
     }
 
     private String getScoreWhenAll() {
-        switch (scorePlayerOne) {
-            case 0:
-                return "Love-All";
-            case 1:
-                return "Fifteen-All";
-            case 2:
-                return "Thirty-All";
-            default:
-                return "Deuce";
-        }
+        return switch (scorePlayerOne) {
+            case 0 -> "Love-All";
+            case 1 -> "Fifteen-All";
+            case 2 -> "Thirty-All";
+            default -> "Deuce";
+        };
     }
 }
