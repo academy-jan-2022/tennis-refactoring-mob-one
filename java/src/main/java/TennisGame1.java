@@ -30,11 +30,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getRunningScore() {
-        String score = "";
-        score += getFoo(scorePlayerOne) ;
-        score +="-";
-        score += getFoo(scorePlayerTwo);
-        return score;
+        return getFoo(scorePlayerOne) + "-" + getFoo(scorePlayerTwo);
     }
 
     private String getFoo(int tempScore) {
