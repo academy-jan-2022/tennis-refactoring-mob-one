@@ -48,13 +48,11 @@ public class TennisGame1 implements TennisGame {
     }
 
     private String getAdvantageOrWinner() {
-        String score;
-        int minusResult = scorePlayerOne - scorePlayerTwo;
-        if (minusResult==1) score ="Advantage " + player1Name;
-        else if (minusResult ==-1) score ="Advantage " + player2Name;
-        else if (minusResult>=2) score = "Win for " + player1Name;
-        else score ="Win for " + player2Name;
-        return score;
+        int scoreDifference = scorePlayerOne - scorePlayerTwo;
+        if (scoreDifference == 1) return "Advantage " + player1Name;
+        if (scoreDifference == -1) return"Advantage " + player2Name;
+        if (scoreDifference >= 2) return "Win for " + player1Name;
+        return "Win for " + player2Name;
     }
 
     private String getScoreWhenAll() {
