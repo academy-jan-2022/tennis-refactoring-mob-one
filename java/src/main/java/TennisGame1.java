@@ -20,13 +20,37 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-        if (scorePlayerOne == scorePlayerTwo)
+        if (hasEqualScore())
             return getScoreWhenAll();
-
-        if (scorePlayerOne >=4 || scorePlayerTwo >=4)
-            return getAdvantageOrWinner();
-
+        if (isAdvatageForPlayerOne())
+            return  "Advantage " + player1Name;
+        if (isAdvantageForPlayerTwo())
+            return  "Advantage " + player2Name;
+        if (isWinForPlayerOne())
+            return  "Win for " + player1Name;
+        if (isWinForPlayerTwo())
+            return  "Win for " + player2Name;
         return getRunningScore();
+    }
+
+    private boolean isWinForPlayerTwo() {
+        return scorePlayerTwo >= 4 && (scorePlayerOne - scorePlayerTwo) <= -2;
+    }
+
+    private boolean isWinForPlayerOne() {
+        return scorePlayerOne >= 4 && (scorePlayerOne - scorePlayerTwo) >= 2;
+    }
+
+    private boolean isAdvantageForPlayerTwo() {
+        return scorePlayerTwo >= 4 && (scorePlayerOne - scorePlayerTwo) == -1;
+    }
+
+    private boolean isAdvatageForPlayerOne() {
+        return scorePlayerOne >= 4 && (scorePlayerOne - scorePlayerTwo) == 1;
+    }
+
+    private boolean hasEqualScore() {
+        return scorePlayerOne == scorePlayerTwo;
     }
 
     private String getRunningScore() {
@@ -39,15 +63,6 @@ public class TennisGame1 implements TennisGame {
             case 1 -> "Fifteen";
             case 2 -> "Thirty";
             default -> "Forty";
-        };
-    }
-
-    private String getAdvantageOrWinner() {
-        return switch (scorePlayerOne - scorePlayerTwo){
-            case 1 -> "Advantage " + player1Name;
-            case -1 -> "Advantage " + player2Name;
-            case 2 -> "Win for " +  player1Name;
-            default -> "Win for " + player2Name;
         };
     }
 
